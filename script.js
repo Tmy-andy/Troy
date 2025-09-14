@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Add click effect to profile avatar
-    const profileAvatar = document.querySelector('.profile-avatar');
+    const profileAvatar = document.querySelector('.avatar');
     if (profileAvatar) {
         profileAvatar.addEventListener('click', function() {
             this.style.transform = 'scale(0.95)';
@@ -571,10 +571,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 4000);
         
         // Avatar effect
-        profileAvatar.style.transition = 'all 0.3s ease';
-        profileAvatar.style.background = 'linear-gradient(45deg, #333, #555, #777)';
-        profileAvatar.style.transform = 'scale(1.1)';
-        profileAvatar.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
+        // profileAvatar.style.transition = 'all 0.3s ease';
+        // profileAvatar.style.background = 'linear-gradient(45deg, #333, #555, #777)';
+        // profileAvatar.style.transform = 'scale(1.1)';
+        // profileAvatar.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
         
         setTimeout(() => {
             profileAvatar.style.transform = 'scale(1)';
