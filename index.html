@@ -47,6 +47,10 @@
         font-weight: normal;
         font-style: normal;
       }
+      :root {
+        --accent: #60a5fa;     /* xanh navy */
+        --accent-2: #15304b;   /* xanh đen phụ */
+      }
       body {
         font-family: 'Cormorant Garamond','Playfair Display','Poppins', sans-serif;
         font-size: calc(1rem * 1.4);
@@ -66,9 +70,8 @@
         border: 1px solid rgba(255,255,255,0.03);
       }
       .profile-header {
-        background: linear-gradient(135deg,var(--accent-2),var(--accent));
         text-align:center;
-        padding:44px 20px;
+        margin-bottom: 40px;
         position:relative;
       }
       .avatar {
@@ -86,8 +89,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 18px;
-        padding: 20px;
-        margin: 8px 20px 24px 20px;
       }
       .info-group {
         background: rgba(255, 255, 255, 0.05);
@@ -97,7 +98,7 @@
       }
       .info-group h4 {
         margin-bottom: 10px;
-        font-size: 20px;
+        font-size: 25px;
         color: var(--accent);
       }
       .info-items {
@@ -118,29 +119,61 @@
         color:var(--muted);
       }
       .info-item strong {color:var(--text)}
-      .info-item i {font-size:25px; color:var(--accent);}
+      .info-item i {font-size:25px; color: var(--accent)}
       .info-item img.zodiac-icon { width:28px; height:28px; object-fit:contain; }
-      .info-item span { font-size:23px; }
+      .info-item span { font-size:20px; }
+      .info-group h4 {
+        margin-bottom: 10px;
+        font-family: "Playfair Display SC", serif;
+        color: var(--accent);
+      }
+      .section h3 {
+        font-size: 30px;
+        font-family: "Playfair Display SC", serif;
+        margin-bottom:15px;
+        margin-bottom: 30px;
+        color:var(--accent);
+        display:flex;align-items:center;gap:10px;
+      }
+      .info-items span {
+        font-size: 20px;
+        flex: 1; 
+      }
+      .info-item i,
+      .info-item img {
+        display: inline-block;
+        width: 30px;      /* chiều ngang cố định cho icon */
+        height: 30px;     /* chiều cao chuẩn */
+        text-align: center; /* căn font icon giữa */
+        object-fit: contain; /* img không méo */
+        flex-shrink: 0;   /* không co icon */
+      }
+      .info-item img {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+        margin-left: -2px;
+      }
     </style>
 
 </head>
 <body>
-    <div class="container">
-        <div class="profile-card">
-            <div class="profile-header">
-                <img class="avatar" src="img/favicon_grey.png">
-                <h1>Troilus Wettin (Troy)</h1>
-                <h2 class="subtitle">Thám tử tư - Tokyo, Nhật Bản</h2>
-            </div>
+    <div class="container" style="width: 1200px;">
+        
+        <div class="profile-header">
+            <img class="avatar" src="img/favicon_grey.png">
+            <h1>Troilus Wettin (Troy)</h1>
+            <h2 class="subtitle">Thám tử tư - Tokyo, Nhật Bản</h2>
+        </div>
 
         <div class="info-groups">
             <div class="info-group">
                 <h4>Thông tin cơ bản</h4>
                 <div class="info-items">
                 <div class="info-item"><i class="fas fa-calendar-day"></i><span><strong>Tuổi:</strong> 35</span></div>
-                <div class="info-item"><i class="fas fa-venus-mars"></i><span><strong>Giới tính:</strong> Liên giới tính (Intersex)</span></div>
+                <div class="info-item"><i class="fas fa-venus-mars"></i><span><strong>Giới tính:</strong> Liên giới tính</span></div>
                 <div class="info-item"><i class="fas fa-cake-candles"></i><span><strong>Sinh nhật:</strong> 3:35AM - 15/01/1990</span></div>
-                <div class="info-item"><img src="img/capricorn-3b82f6.png" alt="Capricorn" class="zodiac-icon"><span><strong>Cung hoàng đạo:</strong> Ma Kết (Capricorn)</span></div>
+                <div class="info-item"><img src="img/capricorn_blue.png" alt="Capricorn"><span><strong>Zodiac:</strong> Ma Kết (Capricorn)</span></div>
                 <div class="info-item"><i class="fas fa-shapes"></i><span><strong>MBTI:</strong> ISTP </span></div>
                 </div>
             </div>
@@ -149,7 +182,7 @@
                 <h4>Học tập / Công việc</h4>
                 <div class="info-items">
                 <div class="info-item"><i class="fas fa-briefcase"></i><span><strong>Nghề nghiệp:</strong> Thám tử tư</span></div>
-                <div class="info-item"><i class="fas fa-building"></i><span><strong>Nơi làm việc:</strong> Tokyo (văn phòng tư)</span></div>
+                <div class="info-item"><i class="fas fa-building"></i><span><strong>Nơi làm việc:</strong> Tokyo</span></div>
                 <div class="info-item"><i class="fas fa-passport"></i><span><strong>Quốc tịch:</strong> Đức</span></div>
                 </div>
             </div>
@@ -209,6 +242,8 @@
                 <ul>
                     <li>Cao 1m87, dáng thể thao nhờ tập gym & vận động thường xuyên</li>
                     <li>Đậm nét Châu Âu (từ cha), chỉ thừa hưởng đôi mắt của mẹ</li>
+                    <li>Có nốt ruồi ở gần môi phía bên phải, một nốt ruồi son nằm chếch xéo phải trên núm vú trái, cách núm khoảng 5cm</li>
+                    <li>Nốt ruồi đen nhỏ sau gáy, phải nhìn gần mới thấy</li>
                     <li>Thường mặc âu phục (suit) → chỉnh tề, sang trọng nhưng không khoa trương</li>
                     <li>Thích phụ kiện nhỏ gọn, tinh tế nhưng có ánh lấp lánh (khuy măng sét, kẹp cà vạt,...)</li>
                 </ul>
@@ -359,12 +394,32 @@
             <section class="section">
                 <h3 class="section-title">
                     <i class="fas fa-fingerprint"></i>
-                    Đặc điểm
+                    Đặc điểm nhận biết
                 </h3>
                 <ul>
                     <li><strong>Nước hoa:</strong> hương thảo mộc nhẹ, thanh, dễ chịu</li>
                     <li><strong>Khi nhận vụ án khó nhằn:</strong> hút thuốc nhiều (bình thường không hút thuốc)</li>
                     <li><strong>Còn nữa (cập nhật sau)</strong> ...</li>
+                </ul>
+            </section>
+            <section class="section">
+                <h3 class="section-title">
+                    <i class="fas fa-link"></i>
+                    Với Yuri - Một số thức chỉ Yuri biết
+                </h3>
+                <ul>
+                    <li>
+                        Tóc, chân mày, lông mi rất dày nhưng cơ thể lại rất ít lông, vùng kín chỉ có lông tơ - nhẵn nhụi<br>
+                        <em>(Vì thế rất hay bị em trêu là nhẵn như em bé)</em>
+                    </li>
+                    <li>Nhìn thì lạnh nhạt nhưng thật ra rất thích ôm, chỉ cần thấy em là sáp lại ôm.</li>
+                    <li>Khi say thì im lặng không nói gì, nhìn cứ như rất tỉnh. Nhưng gặp em thì bám người, dụi dụi đầu vào gáy em</li>
+                    <li>
+                        Thể chất dễ bị muỗi cắn nên đi đâu cũng mặc áo quần dài<br>
+                        <em>Vì thế nên không ai biết tay chân anh lông tơ rất mỏng còn rất ít lông là thế</em>
+                    </li>
+                    <li>Là người không thể sống khi nhiệt độ cao. Trời càng nóng Troy càng đừ, ráng xong việc chứ về nhà là nằm một đống trên sofa không muốn động đậy</li>
+                    <li>Vành tai rất, vô cùng nhạy cảm nên không thích bị người chạm vào.</li>
                 </ul>
             </section>
         </main>
