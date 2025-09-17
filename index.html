@@ -33,7 +33,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
     <style>
         @font-face {
         font-family: 'UnifrakturMaguntia';
@@ -154,9 +156,334 @@
         margin-right: 10px;
         margin-left: -2px;
       }
-    </style>
 
+      .ja-text {
+        font-family: 'Yuji Mai';
+      }
+
+      .ru-text {
+        font-family: "Lora", serif;
+      }
+
+/* Troy's Voice Section - Enhanced Styling */
+.voice-tabs {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tab-buttons {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  margin: 0 0 28px 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.tab-buttons li {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #dbeafc;
+  cursor: pointer;
+  font-family: "Playfair Display SC", serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-buttons li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.tab-buttons li:hover::before {
+  left: 100%;
+}
+
+.tab-buttons li:hover {
+  background: rgba(96, 165, 250, 0.15);
+  border-color: rgba(96, 165, 250, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.2);
+}
+
+.tab-buttons li.active {
+  background: linear-gradient(135deg, var(--accent), #3b82f6);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+}
+
+.tab-buttons li i {
+  font-size: 18px;
+  color: inherit;
+}
+
+/* Tab Content */
+.tab-content {
+  position: relative;
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeOut 0.3s ease-out;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Voice Grid */
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.voice-item {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.voice-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), #3b82f6, var(--accent));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.voice-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(96, 165, 250, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.voice-item:hover::before {
+  transform: scaleX(1);
+}
+
+.voice-item.special {
+  border-color: rgba(255, 107, 107, 0.3);
+  background: rgba(255, 107, 107, 0.05);
+}
+
+.voice-item.special::before {
+  background: linear-gradient(90deg, #ff6b6b, #ff8787, #ff6b6b);
+}
+
+.voice-item.special:hover {
+  border-color: rgba(255, 107, 107, 0.5);
+  box-shadow: 0 12px 30px rgba(255, 107, 107, 0.2);
+}
+
+/* Voice Text */
+.voice-text {
+  margin-bottom: 16px;
+}
+
+.voice-text span:first-child {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.voice-text em {
+  font-size: 14px;
+  color: #a8b5c8;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.ja-text {
+  font-family: 'Yuji Mai', serif;
+  font-size: 20px !important;
+}
+
+.ru-text {
+  font-family: "Lora", serif;
+  font-size: 18px !important;
+}
+
+    /* Audio Controls Enhanced */
+  audio {
+    width: 100%;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px;
+    padding: 4px;
+  }
+
+    /* Chrome/Safari/Edge Audio Controls */
+    audio::-webkit-media-controls-panel {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 6px;
+    }
+
+    audio::-webkit-media-controls-play-button {
+      background-color: var(--accent);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      width: 28px;
+      height: 28px;
+    }
+
+    audio::-webkit-media-controls-play-button:hover {
+      background-color: #3b82f6;
+      transform: scale(1.1);
+    }
+
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display {
+      color: #dbeafc;
+      font-size: 12px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    audio::-webkit-media-controls-timeline {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      height: 4px;
+    }
+
+    audio::-webkit-media-controls-timeline::-webkit-slider-thumb {
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(96, 165, 250, 0.4);
+    }
+
+    audio::-webkit-media-controls-volume-slider {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    audio::-webkit-media-controls-volume-slider::-webkit-slider-thumb {
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* Empty State */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #a8b5c8;
+    text-align: center;
+  }
+
+    .empty-state i {
+      font-size: 48px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+
+    .empty-state em {
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    /* Responsive Design */
+  @media (max-width: 768px) {
+      .voice-tabs {
+        padding: 16px;
+        margin-top: 20px;
+      }
+    
+      .tab-buttons {
+        gap: 8px;
+        padding: 6px;
+      }
+    
+      .tab-buttons li {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+    
+      .voice-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    
+      .voice-item {
+        padding: 16px;
+      }
+    
+      .voice-text span:first-child {
+        font-size: 16px;
+      }
+    
+      .ja-text {
+        font-size: 18px !important;
+      }
+    
+      .ru-text {
+        font-size: 16px !important;
+      }
+    }      
+  </style>
 </head>
+
 <body>
     <div class="container" style="width: 1200px;">
         
@@ -442,6 +769,240 @@
                     </li>
                     <li>Nhìn thì tưởng kiên nhẫn rất tốt. Nhưng thật ra bản chất thì hoàn toàn ngược lại, chỉ là cố kiềm nén mà thôi</li>
                 </ul>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title">
+                    <i class="fas fa-microphone-alt"></i>
+                    Troy' Voice
+                </h3>
+                <div class="voice-tabs">
+                    <!-- Thanh chọn ngôn ngữ -->
+                    <ul class="tab-buttons">
+                        <li data-tab="ja" class="active"><i class="fas fa-torii-gate"></i>Nhật</li>
+                        <li data-tab="ru"><i class="fas fa-snowflake"></i>Nga</li>
+                        <li data-tab="en"><i class="fas fa-flag-usa"></i>Anh</li>
+                        <li data-tab="vi"><i class="fas fa-star"></i>Việt</li>
+                        <li data-tab="de"><i class="fas fa-eagle"></i>Đức</li>
+                    </ul>
+
+                    <!-- Nội dung từng tab -->
+                    <div class="tab-content">
+                        <!-- Nhật -->
+                        <div id="tab-ja" class="tab-panel active">
+                            <div class="voice-grid">
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ja-text">なんでやねん?</span>
+                                        <em>Gì vậy?</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ja/なんでやねん.wav" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ja-text">オレはトロイ。探偵や</span>
+                                        <em>Tôi là Troy, Thám tử</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ja/オレはトロイ。探偵や.wav" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ja-text">無駄口叩く気はない</span>
+                                        <em>Tôi không có hứng nói nhảm</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ja/無駄口叩く気はない。.wav" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ja-text">仕事は仕事や。情を挟む気はあらへん</span>
+                                        <em>Công việc là công việc. Tôi không để tình cảm xen vào.</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ja/006仕事は仕事や。情を….wav" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ja-text">表に出とるもんより、隠れとるもんの方が大事や。</span>
+                                        <em>Thứ ẩn giấu thường quan trọng hơn những gì phơi bày ra.</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ja/表に出とるもんより….wav" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ja-text">真実は一つや。ただ、そこに辿り着けるかは別の話やな。</span>
+                                        <em>Sự thật chỉ có một. Nhưng có đến được hay không lại là chuyện khác.</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ja/真実は一つや、ただ….wav" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item special">
+                                    <div class="voice-text">
+                                        <span class="ja-text">ユリ。(1)</span>
+                                        <em>Yuri (1)</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ja/ユリ1.wav" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item special">
+                                    <div class="voice-text">
+                                        <span class="ja-text">ユリ。(2)</span>
+                                        <em>Yuri (2)</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ja/ユリ2.wav" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nga -->
+                        <div id="tab-ru" class="tab-panel">
+                            <div class="voice-grid">
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ru-text">Что за чушь?</span>
+                                        <em>Gì vậy?</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ru/Что за чушь.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ru-text">Я Трой. Детектив.</span>
+                                        <em>Tôi là Troy, Thám tử</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ru/Я Трой. Детектив.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ru-text">Мне не о чем болтать впустую.</span>
+                                        <em>Tôi không có hứng nói nhảm</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ru/Мне не о чем болтать впустую..mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ru-text">Работа есть работа. Личных чувств здесь не место.</span>
+                                        <em>Công việc là công việc. Tôi không để tình cảm xen vào.</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ru/Работа есть работа. Личных чувств здесь не место.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ru-text">Важнее не то, что на виду, а то, что скрыто.</span>
+                                        <em>Thứ ẩn giấu thường quan trọng hơn những gì phơi bày ra.</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ru/Важнее не то, что на виду, а то, что скрыто.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span class="ru-text">Истина одна. Но сможем ли мы до неё дойти — совсем другой вопрос.</span>
+                                        <em>Sự thật chỉ có một. Nhưng có đến được hay không lại là chuyện khác.</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/ru/Истина одна. Но сможем ли мы до неё дойти — совсем другой вопрос.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Anh -->
+                        <div id="tab-en" class="tab-panel">
+                            <div class="empty-state">
+                                <i class="fas fa-headphones"></i>
+                                <em>Chưa có dữ liệu âm thanh</em>
+                            </div>
+                        </div>
+
+                        <!-- Việt -->
+                        <div id="tab-vi" class="tab-panel">
+                            <div class="empty-state">
+                                <i class="fas fa-headphones"></i>
+                                <em>Chưa có dữ liệu âm thanh</em>
+                            </div>
+                        </div>
+
+                        <!-- Đức -->
+                        <div id="tab-de" class="tab-panel">
+                            <div class="voice-grid">
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span>Was soll das denn</span>
+                                        <em>Gì vậy?</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/de/Was soll das denn.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span>Ich bin Troy. Detektiv.</span>
+                                        <em>Tôi là Troy, Thám tử</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/de/Ich bin Troy. Detektiv.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span>Ich habe nicht vor, unnötig zu reden.</span>
+                                        <em>Tôi không có hứng nói nhảm</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/de/Ich habe nicht vor, unnötig zu reden.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span>Arbeit ist Arbeit. Ich habe nicht vor, Gefühle einfließen zu lassen.</span>
+                                        <em>Công việc là công việc. Tôi không để tình cảm xen vào.</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/de/Arbeit ist Arbeit. Ich habe nicht vor, Gefühle einfließen zu lassen.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span>Das Verborgene ist wichtiger als das, was offen sichtbar ist.</span>
+                                        <em>Thứ ẩn giấu thường quan trọng hơn những gì phơi bày ra.</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/de/Das Verborgene ist wichtiger als das, was offen sichtbar ist.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="voice-item">
+                                    <div class="voice-text">
+                                        <span>Es gibt nur eine Wahrheit. Doch ob man sie erreicht, ist eine andere Geschichte.</span>
+                                        <em>Sự thật chỉ có một. Nhưng có đến được hay không lại là chuyện khác.</em>
+                                    </div>
+                                    <audio controls>
+                                        <source src="audio/de/Es gibt nur eine Wahrheit. Doch ob man sie erreicht, ist eine andere Geschichte.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
 

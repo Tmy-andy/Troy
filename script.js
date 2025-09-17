@@ -674,3 +674,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+document.querySelectorAll('.tab-buttons li').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.getAttribute('data-tab');
+
+    // reset active button
+    document.querySelectorAll('.tab-buttons li').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // reset panels
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+  });
+});
